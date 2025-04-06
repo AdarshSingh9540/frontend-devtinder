@@ -9,7 +9,7 @@ import { Pencil } from "lucide-react";
 import { getProfile } from "@/lib/api";
 import type { Developer } from "@/types";
 import { Skeleton } from "@/components/ui/skeleton";
-
+import { API_BASE_URL } from "@/lib/api";
 export default function ProfilePage() {
   const [profile, setProfile] = useState<Developer | null>(null);
   const [loading, setLoading] = useState(true);
@@ -18,7 +18,7 @@ export default function ProfilePage() {
   useEffect(() => {
     const loadProfile = async () => {
       try {
-        const response = await fetch(`http://localhost:3210/api/profile/view`, {
+        const response = await fetch(`${API_BASE_URL}/profile/view`, {
           method: "GET",
           credentials: "include",
         });

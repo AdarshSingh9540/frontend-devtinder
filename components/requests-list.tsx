@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import type { Developer } from "@/types";
-import { acceptRequest, rejectRequest } from "@/lib/api";
+import { API_BASE_URL } from "@/lib/api";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -26,7 +26,6 @@ export function RequestsList({
     {}
   );
   const { toast } = useToast();
-  const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
   const handleAccept = async (id: string) => {
     setLoadingStates((prev) => ({ ...prev, [id]: true }));
     try {

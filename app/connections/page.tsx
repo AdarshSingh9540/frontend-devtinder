@@ -7,13 +7,12 @@ import { ConnectionsList } from "@/components/connections-list";
 import { RequestsList } from "@/components/requests-list";
 import { getConnections, getReceivedRequests } from "@/lib/api";
 import type { Developer } from "@/types";
-
+import { API_BASE_URL } from "@/lib/api";
 export default function ConnectionsPage() {
   const [connections, setConnections] = useState<Developer[]>([]);
   const [requests, setRequests] = useState<Developer[]>([]);
   const [loadingConnections, setLoadingConnections] = useState(true);
   const [loadingRequests, setLoadingRequests] = useState(true);
-  const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
   useEffect(() => {
     const loadData = async () => {
       try {

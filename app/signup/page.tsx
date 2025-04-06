@@ -25,8 +25,7 @@ import {
 } from "@/components/ui/select";
 import { Heart } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { signUp } from "@/lib/api";
-
+import { API_BASE_URL } from "@/lib/api";
 export default function SignupPage() {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -40,7 +39,6 @@ export default function SignupPage() {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const { toast } = useToast();
-  const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));

@@ -6,13 +6,11 @@ import { DevCard } from "@/components/dev-card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { getFeed } from "@/lib/api";
 import type { Developer } from "@/types";
-
+import { API_BASE_URL } from "@/lib/api";
 export default function FeedPage() {
   const [developers, setDevelopers] = useState<Developer[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(true);
-  const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "";
-  console.log("API_BASE_URL", API_BASE_URL);
   useEffect(() => {
     const loadFeed = async () => {
       try {

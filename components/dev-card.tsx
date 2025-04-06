@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Heart, X, Code, Github, Linkedin } from "lucide-react";
 import type { Developer } from "@/types";
-import { sendInterested } from "@/lib/api";
+import { API_BASE_URL } from "@/lib/api";
 import { useToast } from "@/hooks/use-toast";
 
 interface DevCardProps {
@@ -19,7 +19,6 @@ interface DevCardProps {
 export function DevCard({ developer, onInterested, onIgnore }: DevCardProps) {
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
-  const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
   const handleInterested = async () => {
     setIsLoading(true);
     try {
